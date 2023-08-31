@@ -17,4 +17,4 @@ vpc = {
     }
   }
 }
-default_vpc_id = "172.31.0.0"
+default_vpc_id = "172.31.0.0/16"

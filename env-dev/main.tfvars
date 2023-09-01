@@ -24,8 +24,24 @@ default_route_table_id="rtb-052c61ad81a94fe80"
 tags = {
   company_name  = "ABC Tech"
   business_unit = "Ecommerce"
-  project_name  = "robotshop"
+  project_name  = "roboshop"
   cost_center   = "ecom_rs"
   created_by    = "terraform"
 }
 env = "dev"
+
+alb = {
+  public = {
+    internal = false
+    lb_type = "application"
+    sg_ingress_cidr= ["0.0.0.0/0"]
+    sg_port ="80"
+  }
+  private ={
+    internal = true
+    lb_type = "application"
+    sg_ingress_cidr= ["172.31.0.0/16","10.0.0.0/16"]
+    sg_port ="80"
+  }
+
+}

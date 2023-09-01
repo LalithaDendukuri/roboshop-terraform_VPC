@@ -4,3 +4,10 @@ variable "default_vpc_cidr" {}
 variable "default_route_table_id" {}
 variable "tags" {}
 variable "env" {}
+variable "alb" {}
+variable "internal" {}
+variable "lb_type" {}
+variable "sg_ingress_cidr" {}
+variable "vpc_id" {}
+variable "sg_port" {}
+variable "subnets" {}

@@ -1,5 +1,4 @@
-module "vpc"{
-
+module "vpc" {
   source          ="git::https://github.com/LalithaDendukuri/tf-module-vpc.git"
   for_each        = var.vpc
   cidr            = each.value["cidr"]
@@ -11,10 +10,6 @@ module "vpc"{
   env = var.env
 }
 
-
-output "vpc" {
-  value = module.vpc
-}
 
 module "alb" {
   source          ="git::https://github.com/LalithaDendukuri/tf-module-alb.git"

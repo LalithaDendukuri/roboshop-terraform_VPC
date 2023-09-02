@@ -30,7 +30,14 @@ module "alb" {
 module "docdb" {
   source          ="git::https://github.com/LalithaDendukuri/tf-module-docdb.git"
   for_each        = var.docdb
-
+  subnet_ids      = local.db_subnet
   tags            = var.tags
   env             = var.env
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value["preferred_backup_window"]
+  skip_final_snapshot     = each.value["skip_final_snapshot"]
+  vpc_id          =local.vpc_id
+  sg_ingress_cidr =local.app_subnets_cidr
+  engine_family           = each.value["engine_family"]
+  engine_version           = each.value["engine_version"]
 }

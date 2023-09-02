@@ -26,3 +26,11 @@ module "alb" {
   tags            = var.tags
   env             = var.env
 }
+
+module "docdb" {
+  source          ="git::https://github.com/LalithaDendukuri/tf-module-docdb.git"
+  for_each        = var.docdb
+
+  tags            = var.tags
+  env             = var.env
+}

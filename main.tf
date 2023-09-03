@@ -66,6 +66,7 @@ module "rds" {
   instance_count           = each.value["instance_count"]
   instance_class          = each.value["instance_class"]
 }
+/*
 
 module "elasticache" {
   source = "git::https://github.com/LalithaDendukuri/tf-module-elasticache.git"
@@ -84,4 +85,4 @@ module "elasticache" {
   engine_version       = each.value["engine_version"]
   port                 = each.value["port"]
 
-}
+}*/

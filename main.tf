@@ -56,6 +56,7 @@ module "rds" {
   rds_type                = each.value["rds_type"]
   db_port                 = each.value["db_port"]
 
+  engine                  = each.value["engine"]
   engine_family           = each.value["engine_family"]
   engine_version           = each.value["engine_version"]
   backup_retention_period = each.value["backup_retention_period"]

@@ -66,7 +66,7 @@ module "rds" {
   instance_count           = each.value["instance_count"]
   instance_class          = each.value["instance_class"]
 }
-/*
+
 
 module "elasticache" {
   source = "git::https://github.com/LalithaDendukuri/tf-module-elasticache.git"
@@ -85,4 +85,15 @@ module "elasticache" {
   engine_version       = each.value["engine_version"]
   port                 = each.value["port"]
 
-}*/
+}
+module "rabbitmq" {
+  source = "git::https://github.com/LalithaDendukuri/tf-module-rabbitmq.git"
+  tags = var.tags
+  env= var.env
+  for_each = var.rabbitmq
+  subnet_ids      = local.db_subnet
+  vpc_id          =local.vpc_id
+  sg_ingress_cidr =local.app_subnets_cidr
+  instance_type    = each.value["instance_type"]
+  ssh_ingress_cidr = var.ssh_ingress_cidr
+}

@@ -94,7 +94,6 @@ elasticache ={
 
 rabbitmq = {
   main = {
-
     instance_type    = "t3.small"
   }
 }

@@ -105,8 +105,9 @@ module "app" {
   source = "git::https://github.com/LalithaDendukuri/tf-module-app.git"
   tags = var.tags
   env= var.env
-  zone_id                 = var.zone_id
+  zone_id   = var.zone_id
   for_each = var.apps
+  ssh_ingress_cidr = var.ssh_ingress_cidr
   component       =each.key
   port            =each.value["port"]
   subnet_ids      = local.db_subnet
@@ -117,7 +118,7 @@ module "app" {
   max_size    = each.value["max_size"]
   min_size    = each.value["min_size"]
   lb_priority  = each.value["lb_priority"]
-  ssh_ingress_cidr = var.ssh_ingress_cidr
+
   alb_name = lookup(lookup(lookup( module.alb, "private",null),"alb",null),"dns_name",null)
   listener = lookup(lookup(lookup( module.alb, "private",null),"listener",null),"arn",null)
 }

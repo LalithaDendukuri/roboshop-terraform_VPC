@@ -10,9 +10,9 @@ module "vpc" {
   tags                  = var.tags
   env                   = var.env
 }
-output "vpc" {
+/*output "vpc" {
   value = module.vpc
-}
+}*/
 
 module "alb" {
   source          ="git::https://github.com/LalithaDendukuri/tf-module-alb.git"
@@ -25,6 +25,10 @@ module "alb" {
   sg_port         = each.value["sg_port"]
   tags            = var.tags
   env             = var.env
+}
+
+output "alb" {
+  value = module.alb
 }
 /*
 

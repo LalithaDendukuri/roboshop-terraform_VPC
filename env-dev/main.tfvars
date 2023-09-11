@@ -100,8 +100,7 @@ rabbitmq = {
 }
 
 
-apps =
-{
+apps = {
   front-end ={
     instance-type ="t3.micro"
     port = 80

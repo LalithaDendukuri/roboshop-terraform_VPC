@@ -105,6 +105,7 @@ module "app" {
   source = "git::https://github.com/LalithaDendukuri/tf-module-app.git"
   tags = var.tags
   env= var.env
+  zone_id                 = var.zone_id
   for_each = var.apps
   component       =each.key
   port            =each.value["port"]

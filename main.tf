@@ -27,10 +27,12 @@ module "alb" {
   env             = var.env
 }
 
+/*
 output "alb" {
   value = module.alb
 }
-/*
+*/
+
 
 module "docdb" {
   source          ="git::https://github.com/LalithaDendukuri/tf-module-docdb.git"
@@ -103,7 +105,7 @@ module "rabbitmq" {
   instance_type    = each.value["instance_type"]
   ssh_ingress_cidr = var.ssh_ingress_cidr
 }
-*/
+
 
 module "app" {
   source = "git::https://github.com/LalithaDendukuri/tf-module-app.git"
@@ -116,6 +118,7 @@ module "app" {
   port            =each.value["port"]
   subnet_ids      = local.db_subnet
   vpc_id          =local.vpc_id
+  default_vpc_id  =var.default_vpc_id
   sg_ingress_cidr =local.app_subnets_cidr
   instance_type    = each.value["instance_type"]
   desired_capacity    = each.value["desired_capacity"]

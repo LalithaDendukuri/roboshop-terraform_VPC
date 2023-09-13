@@ -27,12 +27,13 @@ module "alb" {
   env             = var.env
 }
 
-/*
+
 output "alb" {
   value = module.alb
 }
-*/
 
+
+/*
 
 module "docdb" {
   source          ="git::https://github.com/LalithaDendukuri/tf-module-docdb.git"
@@ -131,4 +132,4 @@ module "app" {
 
   public_alb_name = lookup(lookup(lookup( module.alb, "public",null),"alb",null),"dns_name",null)
   public_listener = lookup(lookup(lookup( module.alb, "public",null),"listener",null),"arn",null)
-}
+}*/

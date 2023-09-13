@@ -27,13 +27,12 @@ module "alb" {
   env             = var.env
 }
 
-
+/*
 output "alb" {
   value = module.alb
 }
+*/
 
-
-/*
 
 module "docdb" {
   source          ="git::https://github.com/LalithaDendukuri/tf-module-docdb.git"
@@ -107,6 +106,7 @@ module "rabbitmq" {
   ssh_ingress_cidr = var.ssh_ingress_cidr
 }
 
+/*
 
 module "app" {
   source = "git::https://github.com/LalithaDendukuri/tf-module-app.git"

@@ -49,7 +49,7 @@ module "docdb" {
   engine_version           = each.value["engine_version"]
   instance_count           = each.value["instance_count"]
   instance_class          = each.value["instance_class"]
-  parameters              =each.value["parameters"]
+
 }
 module "rds" {
   source          ="git::https://github.com/LalithaDendukuri/tf-module-rds.git"
@@ -128,6 +128,7 @@ module "app" {
   max_size    = each.value["max_size"]
   min_size    = each.value["min_size"]
   lb_priority  = each.value["lb_priority"]
+  parameters              =each.value["parameters"]
 
   private_alb_name = lookup(lookup(lookup( module.alb, "private",null),"alb",null),"dns_name",null)
   private_listener = lookup(lookup(lookup( module.alb, "private",null),"listener",null),"arn",null)

@@ -119,7 +119,7 @@ module "app" {
   ssh_ingress_cidr = var.ssh_ingress_cidr
   component       =each.key
   port            =each.value["port"]
-  subnet_ids      = local.db_subnet
+  subnet_ids      = local.app_subnet
   vpc_id          =local.vpc_id
   default_vpc_id  =var.default_vpc_id
   sg_ingress_cidr =local.app_subnets_cidr

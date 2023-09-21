@@ -149,7 +149,7 @@ apps = {
     min_size           = 1
     lb_priority         =5
     lb_type            ="private"
-    parameters         = []
+    parameters         = ["rabbitmq"]
   }
   shipping ={
     instance_type ="t3.micro"

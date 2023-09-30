@@ -133,6 +133,7 @@ module "app" {
   min_size    = each.value["min_size"]
   lb_priority  = each.value["lb_priority"]
   parameters              =each.value["parameters"]
+  tags              = merge(var.tags, each.value["tags"])
 
 sg_ingress_cidr =local.app_subnets_cidr
   vpc_id          =local.vpc_id

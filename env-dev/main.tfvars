@@ -115,6 +115,7 @@ apps = {
     lb_priority        =1
     lb_type            ="public"
     parameters         = []
+    tags               = {"Monitor_Nginx=yes"}
   }
   catalogue ={
     instance_type ="t3.micro"
@@ -125,6 +126,7 @@ apps = {
     lb_priority         =2
     lb_type            ="private"
     parameters         = ["docdb"]
+    tags               = {}
   }
   user ={
     instance_type ="t3.micro"
@@ -135,6 +137,7 @@ apps = {
     lb_priority         =3
     lb_type            ="private"
     parameters         = ["docdb"]
+    tags               = {}
   }
   cart ={
     instance_type ="t3.micro"
@@ -145,6 +148,7 @@ apps = {
     lb_priority         =4
     lb_type            ="private"
     parameters         = []
+    tags               = {}
   }
   payment ={
     instance_type ="t3.micro"
@@ -155,6 +159,7 @@ apps = {
     lb_priority         =5
     lb_type            ="private"
     parameters         = ["rabbitmq"]
+    tags               = {}
   }
   shipping ={
     instance_type ="t3.micro"
@@ -165,5 +170,6 @@ apps = {
     lb_priority         =6
     lb_type            ="private"
     parameters         = ["rds"]
+    tags               = {}
   }
 }
